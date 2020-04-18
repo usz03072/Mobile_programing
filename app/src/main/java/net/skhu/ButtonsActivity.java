@@ -28,6 +28,7 @@ public class ButtonsActivity extends AppCompatActivity {
                 Toast.makeText(ButtonsActivity.this, msg, Toast.LENGTH_SHORT).show();
             }
         };
+
         Button button1 = (Button)findViewById(R.id.button1);
         Button button2 = (Button)findViewById(R.id.button1);
         Button button3 = (Button)findViewById(R.id.button2);

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="net.skhu">
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -8,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CheckboxesActivity" android:label="@string/action_checkboxes" />
+        <activity android:name=".AlertsActivity" android:label="@string/action_alerts" />
+        <activity
+            android:name=".SpinnersActivity"
+            android:label="@string/action_spinners" />
+        <activity
+            android:name=".CheckboxesActivity"
+            android:label="@string/action_checkboxes" />
         <activity
             android:name=".ButtonsActivity"
             android:label="@string/action_buttons" />
@@ -21,8 +28,10 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
