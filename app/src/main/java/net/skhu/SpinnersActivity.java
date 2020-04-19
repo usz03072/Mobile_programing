@@ -32,14 +32,22 @@ public class SpinnersActivity extends AppCompatActivity {
                 Toast.makeText(SpinnersActivity.this, s, Toast.LENGTH_SHORT).show();
             }
 
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
+            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-            }
 
-            public void onNothingSelected(AdapterView<?> parent){
 
-            }
-        };
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(SpinnersActivity.this,"선택된 아이템 : "+spinner.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+        }
+    }
 
         Button button = (Button) findViewById(R.id.btnSave);
         button.setOnClickListener(listener1);
