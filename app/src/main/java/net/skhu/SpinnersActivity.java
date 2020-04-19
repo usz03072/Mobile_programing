@@ -17,12 +17,12 @@ public class SpinnersActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, stringArray);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner spinner = (Spinner) findViewById(R.id.spinner_addressType);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner_addressType);
         spinner.setAdapter(adapter);
         View.OnClickListener listener1 = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Spinner spinner1 = (Spinner) findViewById(R.id.spinner_phoneType);
+                final Spinner spinner1 = (Spinner) findViewById(R.id.spinner_phoneType);
                 int index1 = spinner1.getSelectedItemPosition();
                 String text1 = spinner1.getSelectedItem().toString();
                 Spinner spinner2 = (Spinner) findViewById(R.id.spinner_addressType);
@@ -30,24 +30,20 @@ public class SpinnersActivity extends AppCompatActivity {
                 String text2 = spinner2.getSelectedItem().toString();
                 String s = String.format("전화:%s(%d) 주소:%s(%d)", text1, index1, text2, index2);
                 Toast.makeText(SpinnersActivity.this, s, Toast.LENGTH_SHORT).show();
+
+                spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        Toast.makeText(SpinnersActivity.this,"선택된 아이템 : "+spinner.getSelectedItemPosition(),Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
             }
-
-            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-
-
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    Toast.makeText(SpinnersActivity.this,"선택된 아이템 : "+spinner.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-        }
-    }
+    };
 
         Button button = (Button) findViewById(R.id.btnSave);
         button.setOnClickListener(listener1);
